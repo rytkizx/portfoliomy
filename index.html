@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Portfolio Website Yash Akbar Raihan - Lulusan Teknologi Pendidikan & Web Developer. Spesialisasi dalam pengembangan website, desain media instruksional, grafis, dan analisis data.">
+  <meta name="keywords"
+    content="Yash Akbar Raihan, Portofolio, Teknologi Pendidikan, Web Developer, Graphic Design, Data Analysis, Surabaya">
+  <meta name="author" content="Yash Akbar Raihan">
+
+  <title>Yash Akbar Raihan | Portofolio Teknologi Pendidikan & Web Developer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-mode"> <!-- Default to Dark Mode for premium feel, toggleable -->
+
+  <!-- Header & Navigation -->
+  <header id="main-header" class="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo" id="nav-logo">
+        <span class="logo-accent">Yash</span>.
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="nav-desktop" aria-label="Desktop Navigation">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-link">Tentang</a></li>
+          <li><a href="#experience" class="nav-link">Pengalaman</a></li>
+          <li><a href="#skills" class="nav-link">Keahlian</a></li>
+          <li><a href="#education-cert" class="nav-link">Pendidikan & Sertifikasi</a></li>
+          <li><a href="#contact" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons (Theme Toggle + Mobile Menu Button) -->
+      <div class="header-actions">
+        <!-- Light/Dark Mode Switcher -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Ganti Tema Warna" title="Ganti Tema">
+          <!-- Moon Icon (for dark mode active) -->
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sun Icon (for light mode active) -->
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="btn-icon mobile-menu-btn" aria-label="Buka Menu Navigasi"
+          aria-expanded="false">
+          <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="icon-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer">
+    <nav class="nav-mobile" aria-label="Mobile Navigation">
+      <ul class="mobile-links">
+        <li><a href="#about" class="mobile-link">Tentang</a></li>
+        <li><a href="#experience" class="mobile-link">Pengalaman</a></li>
+        <li><a href="#skills" class="mobile-link">Keahlian</a></li>
+        <li><a href="#education-cert" class="mobile-link">Pendidikan & Sertifikasi</a></li>
+        <li><a href="#contact" class="mobile-link">Kontak</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content scroll-reveal">
+          <div class="badge">Teknologi Pendidikan & Developer</div>
+          <h1 class="hero-title">Yash Akbar <span class="gradient-text">Raihan</span></h1>
+          <p class="hero-subtitle">Mengintegrasikan kreativitas desain instruksional dengan keahlian pengembangan web
+            modern untuk menciptakan solusi pembelajaran digital yang inovatif dan efektif.</p>
+
+          <div class="hero-ctas">
+            <a href="#experience" class="btn btn-primary" id="hero-cta-work">Lihat Pengalaman</a>
+            <a href="#contact" class="btn btn-secondary" id="hero-cta-contact">Hubungi Saya</a>
+          </div>
+
+          <!-- Dynamic Info Badges -->
+          <!-- <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-num">S1</span>
+              <span class="stat-label">Teknologi Pendidikan</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">3.86</span>
+              <span class="stat-label">IPK Lulusan</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">4+</span>
+              <span class="stat-label">Proyek Inti</span>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="hero-visual scroll-reveal delay-1">
+          <!-- Premium Profile Photo Frame with Half-Body Crop -->
+          <div class="hero-avatar-frame">
+            <div class="avatar-glow"></div>
+            <div class="avatar-deco-circle"></div>
+            <div class="avatar-image-container">
+              <img src="fotoku.jpeg" alt="Yash Akbar Raihan" class="hero-avatar-img">
+            </div>
+            <!-- Floating Tech & Edu Tags -->
+            <div class="avatar-tag tag-code" title="Web Developer">&lt;/&gt;</div>
+            <div class="avatar-tag tag-edu" title="Teknologi Pendidikan">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-tag">Tentang Saya</span>
+          <h2 class="section-title">Menggabungkan Edukasi & Teknologi</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-desc scroll-reveal">
+            <p class="about-text-lead">
+              Lulusan S1 Teknologi Pendidikan yang berpengalaman dalam menggabungkan kreativitas dan teknologi untuk
+              merancang solusi edukasi yang efektif.
+            </p>
+            <p class="about-text">
+              Saya memiliki keahlian dalam pengembangan website responsif, produksi media visual, desain grafis, dan
+              analisis data. Fokus saya berpusat pada pengembangan kurikulum, desain pembelajaran interaktif, serta
+              implementasi teknologi pendidikan. Saya siap memberikan kontribusi proaktif, baik secara mandiri maupun
+              berkolaborasi dalam tim, guna meningkatkan kualitas program pembelajaran digital.
+            </p>
+            <div class="contact-quick">
+              <div class="contact-quick-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span>Surabaya, Jawa Timur</span>
+              </div>
+              <div class="contact-quick-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-small">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a href="mailto:yashakbarraihan@gmail.com">yashakbarraihan@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-cards scroll-reveal delay-1">
+            <div class="about-card-item">
+              <div class="card-icon indigo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">Desain Pembelajaran</h3>
+              <p class="card-desc">Merancang materi, Rencana Pelaksanaan Pembelajaran (RPP), dan kurikulum interaktif
+                yang meningkatkan pemahaman konsep.</p>
+            </div>
+
+            <div class="about-card-item">
+              <div class="card-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">Web Development</h3>
+              <p class="card-desc">Mengembangkan platform pembelajaran, landing page, dan mengelola database digital
+                library secara responsif.</p>
+            </div>
+
+            <div class="about-card-item">
+              <div class="card-icon orange">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+              </div>
+              <h3 class="card-title">Desain Visual & Media</h3>
+              <p class="card-desc">Membuat materi grafis edukatif, infografis, video pembelajaran interaktif, serta
+                layout promosi sosial media.</p>
+            </div>
+
+            <div class="about-card-item">
+              <div class="card-icon pink">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="18" y1="20" x2="18" y2="10"></line>
+                  <line x1="12" y1="20" x2="12" y2="4"></line>
+                  <line x1="6" y1="20" x2="6" y2="14"></line>
+                </svg>
+              </div>
+              <h3 class="card-title">Analisis Data</h3>
+              <p class="card-desc">Mengolah data retail dan performa akademik menggunakan SQL & Python, lalu
+                memvisualisasikannya di Looker Studio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-tag">Perjalanan Karir</span>
+          <h2 class="section-title">Riwayat Pengalaman</h2>
+          <div class="underline"></div>
+        </div>
+
+        <!-- Experience Tab Switchers -->
+        <div class="exp-tabs-container scroll-reveal">
+          <button class="tab-btn active" id="tab-work" data-target="work-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            Pekerjaan & Magang
+          </button>
+          <button class="tab-btn" id="tab-org" data-target="org-content">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tab-icon">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Pengalaman Organisasi
+          </button>
+        </div>
+
+        <!-- Tab Contents Wrapper -->
+        <div class="tab-panels scroll-reveal delay-1">
+          <!-- Work & Internship Content (Active by default) -->
+          <div class="tab-panel active" id="work-content">
+            <div class="timeline">
+              <!-- Job 1 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Oktober 2024 - Sekarang</div>
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <h3 class="timeline-role">Tutor</h3>
+                    <span class="timeline-company">Algorithmics Surabaya Branch</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Mengajar pemrograman Python dari tingkat dasar hingga profesional kepada siswa dari berbagai
+                      latar belakang, mencakup konsep inti seperti variabel, fungsi, perulangan, hingga pengembangan
+                      proyek lanjutan.</li>
+                    <li>Mentoring scripting Roblox menggunakan bahasa Lua, mencakup logika game, GUI interaktif, dan
+                      pengaturan fitur yang kompleks.</li>
+                    <li>Menerapkan pendekatan pembelajaran berbasis proyek (project-based approach), membantu siswa
+                      membangun portofolio riil yang relevan dengan kebutuhan industri.</li>
+                    <li>Menciptakan lingkungan belajar yang kolaboratif, berfokus pada pengembangan logika berpikir dan
+                      kemampuan pemecahan masalah (problem-solving).</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Job 2 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Agustus 2023 - Desember 2023</div>
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <h3 class="timeline-role">Learning Design Internship</h3>
+                    <span class="timeline-company">Singapore Interculture School Kelapa Gading</span>
+                    <span class="timeline-location">Jakarta Utara</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Merancang rencana pelaksanaan pembelajaran (lesson plans) dan desain instruksional untuk satu
+                      term akademis guna meningkatkan keterlibatan siswa secara efektif.</li>
+                    <li>Mengembangkan materi pendukung pembelajaran dan memproduksi video instruksional interaktif yang
+                      berhasil memperkuat pemahaman konsep materi siswa.</li>
+                    <li>Mendukung proses pengajaran di kelas secara langsung dan mendesain platform web pembelajaran
+                      interaktif untuk meningkatkan fleksibilitas serta aksesibilitas belajar siswa.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Job 3 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Februari 2023 - Juni 2023</div>
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <h3 class="timeline-role">Internship Website Developer &amp; Graphic Design</h3>
+                    <span class="timeline-company">Perwakilan BKKBN Provinsi Jawa Timur</span>
+                    <span class="timeline-location">Surabaya</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Mengelola website perpustakaan digital instansi, memastikan aksesibilitas pengguna yang optimal
+                      serta mempermudah sistem pencarian koleksi pustaka.</li>
+                    <li>Membuat desain materi edukasi visual seperti infografis dan konten interaktif yang memperkuat
+                      penyampaian pesan edukasi BKKBN serta meningkatkan interaksi audiens secara digital.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Organizational Content (Hidden by default) -->
+          <div class="tab-panel" id="org-content">
+            <div class="timeline">
+              <!-- Org 1 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 - 2025</div>
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <h3 class="timeline-role">Wakil Ketua (2023/2024) &amp; Ketua (2024/2025)</h3>
+                    <span class="timeline-company">Resimen Mahasiswa UNESA</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Memimpin pelaksanaan program pendidikan dasar dan khusus bagi anggota baru untuk membentuk
+                      kualitas kepemimpinan, disiplin, dan keahlian taktis.</li>
+                    <li>Mendorong pencapaian prestasi anggota hingga mendapatkan penghargaan prestisius, termasuk
+                      peringkat 3 besar penembak terbaik dalam kompetisi regional.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Org 2 -->
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2022</div>
+                <div class="timeline-card">
+                  <div class="timeline-header">
+                    <h3 class="timeline-role">Staf Hubungan Media &amp; Informasi (Medinfo)</h3>
+                    <span class="timeline-company">BEM Fakultas Ilmu Pendidikan UNESA</span>
+                  </div>
+                  <ul class="timeline-bullets">
+                    <li>Bertindak sebagai moderator dalam webinar pelatihan Program Kreativitas Mahasiswa (PKM),
+                      memfasilitasi pengembangan minat riset dan pengabdian masyarakat mahasiswa.</li>
+                    <li>Merancang desain grafis materi publikasi dan layout media sosial BEM, meningkatkan jangkauan
+                      keterbacaan serta visibilitas program kerja organisasi.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-tag">Kompetensi</span>
+          <h2 class="section-title">Keahlian &amp; Tools</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Technical & Design -->
+          <div class="skills-category scroll-reveal">
+            <div class="skills-category-header">
+              <div class="category-icon indigo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <h3>Teknis &amp; Desain</h3>
+            </div>
+
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML, CSS &amp; JavaScript</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python (Teaching &amp; Scripting)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">SQL Database Management</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Graphic Design (Photoshop, Canva)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Video Editing (Adobe Premiere)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Analisis Data (Looker Studio)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill indigo-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Leadership & Development -->
+          <div class="skills-category scroll-reveal delay-1">
+            <div class="skills-category-header">
+              <div class="category-icon teal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <h3>Kepemimpinan &amp; Pengembangan</h3>
+            </div>
+
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Kepemimpinan (Leadership)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill teal-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Penyusunan Rencana Belajar (Lesson Plan)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill teal-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Evaluasi Program (Program Evaluation)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill teal-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Berpikir Kritis (Critical Thinking)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill teal-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Pemecahan Masalah (Problem Solving)</span>
+                  <span class="skill-level">-</span>
+                </div>
+                <div class="skill-bar-bg">
+                  <div class="skill-bar-fill teal-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications Section -->
+    <section id="education-cert" class="edu-cert-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-tag">Kualifikasi</span>
+          <h2 class="section-title">Pendidikan &amp; Sertifikasi</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="edu-cert-grid">
+          <!-- Education Column -->
+          <div class="edu-column scroll-reveal">
+            <h3 class="column-subtitle">Pendidikan Formal</h3>
+            <div class="edu-card">
+              <div class="edu-card-badge">IPK 3.86 / 4.00</div>
+              <h4 class="edu-degree">S1 Teknologi Pendidikan</h4>
+              <span class="edu-school">Universitas Negeri Surabaya (UNESA)</span>
+              <span class="edu-duration">Agustus 2020 - Juni 2024</span>
+
+              <ul class="edu-details">
+                <li>Berfokus pada evaluasi program pelatihan serta perancangan media pembelajaran berbasis teknologi
+                  yang adaptif.</li>
+                <li>Aktif berorganisasi di BEM Fakultas Ilmu Pendidikan dan memimpin Resimen Mahasiswa UNESA sebagai
+                  Ketua &amp; Wakil Ketua.</li>
+                <li>Mengelola website profil instansi serta sistem e-journal untuk program studi S1, S2, dan S3
+                  Teknologi Pendidikan UNESA.</li>
+                <li>Menjadi anggota tim akreditasi untuk program studi S1 Teknologi Pendidikan.</li>
+                <li><strong class="highlight-text">Proyek Unggulan:</strong> Pengembangan sistem e-learning interaktif
+                  dan pembuatan video media pembelajaran berbasis multimedia.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Certifications Column -->
+          <div class="cert-column scroll-reveal delay-1">
+            <h3 class="column-subtitle">Sertifikasi &amp; Kursus</h3>
+            <div class="cert-cards-container">
+              <!-- Cert 1 -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <h4 class="cert-title">Data Analysis (Online Course)</h4>
+                  <span class="cert-authority">Bitlabs Academy</span>
+                  <span class="cert-date">Februari 2023 - Juni 2023</span>
+                </div>
+                <ul class="cert-details">
+                  <li>Menganalisis data transaksi perusahaan retail dan merumuskan rekomendasi bisnis berbasis data.
+                  </li>
+                  <li>Melakukan pemrosesan dan query data menggunakan bahasa SQL &amp; Python.</li>
+                  <li>Menginterpretasikan hasil analisis ke dalam dashboard visual interaktif Looker Studio.</li>
+                </ul>
+              </div>
+
+              <!-- Cert 2 -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <h4 class="cert-title">Adobe Professional Certification</h4>
+                  <span class="cert-authority">Certiport</span>
+                  <span class="cert-date">Maret 2022</span>
+                </div>
+                <ul class="cert-details">
+                  <li>Membuat desain poster dan materi promosi digital profesional menggunakan Adobe Photoshop.</li>
+                  <li>Mengembangkan konten visual untuk publikasi sosial media dan website dengan fokus pada personal
+                    branding.</li>
+                  <li>Menerapkan prinsip desain grafis dalam proyek kampanye edukasi visual.</li>
+                </ul>
+              </div>
+
+              <!-- Cert 3 -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <h4 class="cert-title">JavaScript &amp; HTML/CSS (Online Course)</h4>
+                  <span class="cert-authority">Progate</span>
+                  <span class="cert-date">Mei 2021 - Oktober 2021</span>
+                </div>
+                <ul class="cert-details">
+                  <li>Mengembangkan logika pemrograman dasar dengan membuat aplikasi kalkulator berbasis web
+                    (JavaScript).</li>
+                  <li>Membangun layout responsive landing page dari nol menggunakan HTML5 dan CSS3.</li>
+                </ul>
+              </div>
+
+              <!-- Cert 4 -->
+              <div class="cert-card">
+                <div class="cert-header">
+                  <h4 class="cert-title">Creating Learning Website Using Google Sites</h4>
+                  <span class="cert-authority">Academic World</span>
+                  <span class="cert-date">Oktober 2021</span>
+                </div>
+                <ul class="cert-details">
+                  <li>Merancang platform website pembelajaran multimedia yang terintegrasi dengan Google Workspace dan
+                    asset visual dari Adobe Photoshop.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-tag">Mari Terhubung</span>
+          <h2 class="section-title">Hubungi Saya</h2>
+          <div class="underline"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Links -->
+          <div class="contact-info scroll-reveal">
+            <h3 class="contact-subtitle">Informasi Kontak</h3>
+            <p class="contact-intro">Apakah Anda tertarik untuk berkolaborasi, mendiskusikan peluang kerja, atau sekadar
+              ingin bertukar pikiran mengenai teknologi pembelajaran? Jangan ragu untuk menghubungi saya!</p>
+
+            <div class="contact-cards-list">
+              <!-- Email Card -->
+              <div class="contact-detail-card" id="contact-email-card">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="contact-card-info">
+                  <span class="contact-label">Kirim Email</span>
+                  <a href="mailto:yashakbarraihan@gmail.com" class="contact-value">yashakbarraihan@gmail.com</a>
+                </div>
+                <button class="btn-copy" id="btn-copy-email" aria-label="Salin email" title="Salin ke Papan Klip">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span class="copy-tooltip" id="copy-tooltip">Salin</span>
+                </button>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="contact-detail-card">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                  </svg>
+                </div>
+                <div class="contact-card-info">
+                  <span class="contact-label">Telepon / WhatsApp</span>
+                  <a href="https://wa.me/6289602581429" target="_blank" rel="noopener noreferrer"
+                    class="contact-value">+62 896 0258 1429</a>
+                </div>
+              </div>
+
+              <!-- Portfolio Link Card -->
+              <!-- <div class="contact-detail-card">
+                <div class="contact-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                  </svg>
+                </div>
+                <div class="contact-card-info">
+                  <span class="contact-label">Portofolio &amp; Sosial</span>
+                  <a href="https://bit.ly/yashakbar" target="_blank" rel="noopener noreferrer" class="contact-value">bit.ly/yashakbar</a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-container scroll-reveal delay-1">
+            <h3 class="contact-subtitle">Kirim Pesan</h3>
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="form-name" class="form-label">Nama Lengkap</label>
+                <input type="text" id="form-name" name="name" class="form-input" placeholder="Masukkan nama Anda"
+                  required>
+                <span class="form-error" id="error-name">Nama wajib diisi.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-email" class="form-label">Alamat Email</label>
+                <input type="email" id="form-email" name="email" class="form-input" placeholder="contoh@email.com"
+                  required>
+                <span class="form-error" id="error-email">Masukkan email yang valid.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-subject" class="form-label">Subjek</label>
+                <input type="text" id="form-subject" name="subject" class="form-input" placeholder="Tujuan pesan Anda"
+                  required>
+                <span class="form-error" id="error-subject">Subjek wajib diisi.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="form-message" class="form-label">Pesan</label>
+                <textarea id="form-message" name="message" class="form-textarea" rows="5"
+                  placeholder="Tuliskan pesan Anda di sini..." required></textarea>
+                <span class="form-error" id="error-message">Pesan tidak boleh kosong.</span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="btn-submit">
+                <span>Kirim Pesan</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="send-icon">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="logo logo-accent">Yash</span>.
+        <p class="footer-desc">Menyatukan Pendidikan &amp; Teknologi Informasi untuk Masa Depan Pembelajaran.</p>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Yash Akbar Raihan. All rights reserved.</p>
+        <button id="scroll-top" class="scroll-top-btn" aria-label="Kembali ke atas" title="Kembali ke Atas">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container for Form Submissions -->
+  <div id="toast-container" class="toast-container" role="alert" aria-live="polite"></div>
+
+  <!-- JavaScript Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>

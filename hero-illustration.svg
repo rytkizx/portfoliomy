@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%" style="overflow: visible;">
+  <defs>
+    <!-- Background glow -->
+    <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Gradients for shapes -->
+    <linearGradient id="indigo-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+
+    <linearGradient id="teal-cyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+
+    <linearGradient id="orange-pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="glow-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <style>
+    .floating-slow {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .floating-medium {
+      animation: floatMedium 5s ease-in-out infinite;
+    }
+    .floating-fast {
+      animation: floatFast 4s ease-in-out infinite;
+    }
+    .pulse-slow {
+      animation: pulseSlow 4s ease-in-out infinite;
+    }
+    .draw-line {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawLine 3s ease-out forwards;
+    }
+    
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(2deg); }
+    }
+    @keyframes floatMedium {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes floatFast {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes pulseSlow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+    }
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+  </style>
+
+  <!-- Background Ambient Glow -->
+  <circle cx="250" cy="250" r="230" fill="url(#bg-glow)" class="pulse-slow" />
+
+  <!-- Grid Pattern -->
+  <g opacity="0.08" class="pulse-slow">
+    <path d="M 50,0 L 50,500 M 100,0 L 100,500 M 150,0 L 150,500 M 200,0 L 200,500 M 250,0 L 250,500 M 300,0 L 300,500 M 350,0 L 350,500 M 400,0 L 400,500 M 450,0 L 450,500" stroke="#6366f1" stroke-width="1" />
+    <path d="M 0,50 L 500,50 M 0,100 L 500,100 M 0,150 L 500,150 M 0,200 L 500,200 M 0,250 L 500,250 M 0,300 L 500,300 M 0,350 L 500,350 M 0,400 L 500,400 M 0,450 L 500,450" stroke="#6366f1" stroke-width="1" />
+  </g>
+
+  <!-- Connection lines linking elements -->
+  <g stroke="url(#indigo-purple)" stroke-width="1.5" stroke-dasharray="4,4" fill="none" opacity="0.4">
+    <!-- Top-left: Education Cap to Main -->
+    <path d="M 120,150 L 210,210" />
+    <!-- Top-right: Code to Main -->
+    <path d="M 380,150 L 290,210" />
+    <!-- Mid-left: Analytics to Main -->
+    <path d="M 80,310 L 170,290" />
+    <!-- Mid-right: Design/Gear to Main -->
+    <path d="M 420,310 L 330,290" />
+  </g>
+
+  <!-- Central Interactive Laptop & Book Fusion -->
+  <g class="floating-slow" transform-origin="250 260" filter="url(#soft-shadow)">
+    <!-- Base Platform (Isometric Desk / Plate) -->
+    <ellipse cx="250" cy="360" rx="140" ry="25" fill="#e2e8f0" class="theme-light-fill" opacity="0.8" />
+    <ellipse cx="250" cy="360" rx="140" ry="25" fill="#1e293b" class="theme-dark-fill" opacity="0.3" />
+
+    <!-- Open Book (representing Educational Pedagogy) -->
+    <!-- Left Page -->
+    <path d="M 250,335 C 220,330 150,310 130,320 L 130,270 C 150,260 220,280 250,285 Z" fill="url(#teal-cyan)" opacity="0.85" />
+    <!-- Right Page -->
+    <path d="M 250,335 C 280,330 350,310 370,320 L 370,270 C 350,260 380,280 250,285 Z" fill="url(#teal-cyan)" opacity="0.7" transform="scale(-1, 1) translate(-500, 0)" />
+    
+    <!-- Spine of the book -->
+    <path d="M 250,285 L 250,336" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+
+    <!-- Laptop (representing Technology / Coding) rising from the book -->
+    <!-- Screen Back -->
+    <rect x="170" y="160" width="160" height="110" rx="8" fill="#1e1b4b" stroke="url(#indigo-purple)" stroke-width="2" />
+    
+    <!-- Screen Inner Display -->
+    <rect x="176" y="166" width="148" height="92" rx="4" fill="#0f0728" />
+    
+    <!-- Code Lines inside the screen -->
+    <g fill="#a855f7" opacity="0.9" transform="translate(184, 174)">
+      <!-- Line 1 (Green/Teal for tag) -->
+      <rect x="0" y="0" width="30" height="4" rx="2" fill="#06b6d4" />
+      <rect x="35" y="0" width="50" height="4" rx="2" fill="#818cf8" />
+      
+      <!-- Line 2 (Nested) -->
+      <rect x="10" y="10" width="20" height="4" rx="2" fill="#6366f1" />
+      <rect x="35" y="10" width="65" height="4" rx="2" fill="#a855f7" />
+      <rect x="105" y="10" width="15" height="4" rx="2" fill="#34d399" />
+      
+      <!-- Line 3 (Nested further) -->
+      <rect x="20" y="20" width="45" height="4" rx="2" fill="#f43f5e" />
+      <rect x="70" y="20" width="30" height="4" rx="2" fill="#fb7185" />
+      
+      <!-- Line 4 (Nested further) -->
+      <rect x="20" y="30" width="80" height="4" rx="2" fill="#e2e8f0" />
+      
+      <!-- Line 5 (Closing tag) -->
+      <rect x="10" y="40" width="35" height="4" rx="2" fill="#6366f1" />
+      
+      <!-- Line 6 (New Block) -->
+      <rect x="0" y="50" width="25" height="4" rx="2" fill="#06b6d4" />
+      <rect x="30" y="50" width="40" height="4" rx="2" fill="#818cf8" />
+      
+      <!-- Small dashboard chart widget on the screen side -->
+      <g transform="translate(90, 48)">
+        <rect x="0" y="16" width="8" height="12" rx="1" fill="#06b6d4" />
+        <rect x="12" y="4" width="8" height="24" rx="1" fill="#6366f1" />
+        <rect x="24" y="10" width="8" height="18" rx="1" fill="#a855f7" />
+        <rect x="36" y="0" width="8" height="28" rx="1" fill="#0d9488" />
+      </g>
+    </g>
+
+    <!-- Laptop Hinge and Keyboard Base -->
+    <path d="M 160,270 L 340,270 L 360,295 L 140,295 Z" fill="#334155" stroke="#475569" stroke-width="1.5" />
+    <!-- Keyboard Trackpad Area -->
+    <ellipse cx="250" cy="288" rx="110" ry="4" fill="#1e293b" />
+    <rect x="235" y="290" width="30" height="4" rx="1" fill="#475569" />
+  </g>
+
+  <!-- FLOATING ITEM 1: Graduation Cap (Education Technology) - Top Left -->
+  <g class="floating-medium" transform-origin="120 150" transform="translate(0, -10)">
+    <!-- Glow -->
+    <circle cx="120" cy="150" r="35" fill="#6366f1" fill-opacity="0.1" filter="url(#glow-shadow)" />
+    <!-- White Card Background -->
+    <circle cx="120" cy="150" r="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Graduation Cap Icon -->
+    <g transform="translate(102, 136) scale(1.2)" fill="url(#indigo-purple)">
+      <!-- Cap Top Diamond -->
+      <path d="M 15,2 L 28,8 L 15,14 L 2,8 Z" />
+      <!-- Cap Bottom -->
+      <path d="M 7,11.5 L 7,18 C 7,20 10,21 15,21 C 20,21 23,20 23,18 L 23,11.5 L 15,15.5 Z" />
+      <!-- Tassel -->
+      <path d="M 23,9 L 26,13 L 26,17" stroke="url(#orange-pink)" stroke-width="1.2" fill="none" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- FLOATING ITEM 2: Code Brackets (Developer) - Top Right -->
+  <g class="floating-fast" transform-origin="380 150" transform="translate(0, 5)">
+    <!-- Glow -->
+    <circle cx="380" cy="150" r="35" fill="#a855f7" fill-opacity="0.1" filter="url(#glow-shadow)" />
+    <!-- White Card Background -->
+    <circle cx="380" cy="150" r="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Brackets Code Icon -->
+    <g transform="translate(362, 136) scale(1.2)" stroke="url(#teal-cyan)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Left Bracket -->
+      <path d="M 8,5 L 2,12 L 8,19" />
+      <!-- Right Bracket -->
+      <path d="M 20,5 L 26,12 L 20,19" />
+      <!-- Slash -->
+      <path d="M 16,3 L 12,21" stroke="url(#indigo-purple)" />
+    </g>
+  </g>
+
+  <!-- FLOATING ITEM 3: Data Analytics (Looker Studio/SQL) - Mid Left -->
+  <g class="floating-fast" transform-origin="80 310" transform="translate(0, -5)">
+    <!-- Glow -->
+    <circle cx="80" cy="310" r="35" fill="#06b6d4" fill-opacity="0.1" filter="url(#glow-shadow)" />
+    <!-- White Card Background -->
+    <circle cx="80" cy="310" r="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Analytics Icon -->
+    <g transform="translate(65, 295) scale(1.1)" fill="url(#teal-cyan)">
+      <rect x="2" y="14" width="5" height="12" rx="1.5" />
+      <rect x="11" y="8" width="5" height="18" rx="1.5" fill="url(#indigo-purple)" />
+      <rect x="20" y="2" width="5" height="24" rx="1.5" />
+      <!-- Sparkle/Line linking tops of columns -->
+      <path d="M 4.5,14 L 13.5,8 L 22.5,2" fill="none" stroke="url(#orange-pink)" stroke-width="2" stroke-linecap="round" />
+      <circle cx="22.5" cy="2" r="2.5" fill="#f43f5e" />
+    </g>
+  </g>
+
+  <!-- FLOATING ITEM 4: Design & Interactive Learning Media (Gear / Palette) - Mid Right -->
+  <g class="floating-medium" transform-origin="420 310" transform="translate(0, 10)">
+    <!-- Glow -->
+    <circle cx="420" cy="310" r="35" fill="#ec4899" fill-opacity="0.1" filter="url(#glow-shadow)" />
+    <!-- White Card Background -->
+    <circle cx="420" cy="310" r="28" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- Graphic Design/Pen Tool Icon -->
+    <g transform="translate(403, 293) scale(1.15)" stroke="url(#orange-pink)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Pen NIB -->
+      <path d="M 12,2 L 20,10 L 17,21 L 12,16 L 7,21 L 4,10 Z" fill="url(#orange-pink)" fill-opacity="0.1" />
+      <circle cx="12" cy="9" r="1.5" fill="url(#orange-pink)" />
+      <path d="M 12,9 L 12,16" />
+    </g>
+  </g>
+
+  <!-- Extra Decorative Sparkles/Particles -->
+  <!-- Sparkle 1 -->
+  <path d="M 200,80 L 203,88 L 211,91 L 203,94 L 200,102 L 197,94 L 189,91 L 197,88 Z" fill="#facc15" class="floating-slow" />
+  <!-- Sparkle 2 -->
+  <path d="M 310,100 L 312,106 L 318,108 L 312,110 L 310,116 L 308,110 L 302,108 L 308,106 Z" fill="#38bdf8" class="floating-fast" />
+  <!-- Circle Particle 1 -->
+  <circle cx="150" cy="390" r="4" fill="#fb7185" class="floating-medium" />
+  <!-- Circle Particle 2 -->
+  <circle cx="340" cy="390" r="5" fill="#34d399" class="floating-slow" />
+  <!-- Circle Particle 3 -->
+  <circle cx="250" cy="110" r="3" fill="#818cf8" class="floating-fast" />
+</svg>
