@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   // ==========================================================================
   // 1. THEME TOGGLE (DARK / LIGHT MODE)
   // ==========================================================================
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Check stored theme or default to dark mode
   const currentTheme = localStorage.getItem('theme') || 'dark';
-  
+
   if (currentTheme === 'light') {
     body.classList.remove('dark-mode');
   } else {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   themeToggleBtn.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
-    
+
     // Save to localStorage
     if (body.classList.contains('dark-mode')) {
       localStorage.setItem('theme', 'dark');
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
   const allNavLinks = document.querySelectorAll('.nav-link, .mobile-link');
-  const headerHeight = 80;
+  const getHeaderHeight = () => window.innerWidth <= 480 ? 50 : 80;
   let isScrollingFromClick = false;
   let clickTimeout;
 
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateActiveNav() {
     if (isScrollingFromClick) return;
 
-    const scrollPosition = window.scrollY + headerHeight + 120; // Trigger slightly before hitting the header
+    const scrollPosition = window.scrollY + getHeaderHeight() + 120; // Trigger slightly before hitting the header
     const scrollBottom = window.innerHeight + window.scrollY;
     const pageBottom = document.documentElement.scrollHeight;
 
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Regular Scrollspy calculation
     let currentActiveSectionId = '';
-    
+
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.offsetHeight;
@@ -160,18 +160,18 @@ document.addEventListener('DOMContentLoaded', () => {
   allNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const targetId = link.getAttribute('href');
-      
+
       if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         const targetSection = document.querySelector(targetId);
-        
+
         if (targetSection) {
           // Lock scrollspy updates
           isScrollingFromClick = true;
           clearTimeout(clickTimeout);
-          
+
           const cleanId = targetId.substring(1);
-          
+
           // Apply highlight immediately
           if (cleanId === 'hero') {
             clearHighlights();
@@ -185,14 +185,14 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuBtn.setAttribute('aria-expanded', 'false');
             body.style.overflow = '';
           }
-          
+
           // Programmatic smooth scroll to target offset (excluding header height)
-          const targetOffset = targetSection.offsetTop - headerHeight;
+          const targetOffset = targetSection.offsetTop - getHeaderHeight();
           window.scrollTo({
             top: targetOffset,
             behavior: 'smooth'
           });
-          
+
           // Release scrollspy lock after scroll finishes (1000ms)
           clickTimeout = setTimeout(() => {
             isScrollingFromClick = false;
@@ -249,17 +249,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   const copyEmailBtn = document.getElementById('btn-copy-email');
   const copyTooltip = document.getElementById('copy-tooltip');
-  
+
   if (copyEmailBtn) {
     copyEmailBtn.addEventListener('click', (e) => {
       e.stopPropagation(); // prevent triggering click event on parent elements if any
       const email = 'yashakbarraihan@gmail.com';
-      
+
       navigator.clipboard.writeText(email).then(() => {
         // Success feedback in tooltip
         copyTooltip.textContent = 'Tersalin!';
         showToast('Alamat email berhasil disalin!', 'success');
-        
+
         // Revert tooltip after 2s
         setTimeout(() => {
           copyTooltip.textContent = 'Salin';
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Validate single input field
   function validateField(input, errorElement, validationFn, defaultErrorText) {
     let isValid = true;
-    
+
     if (input.value.trim() === '') {
       errorElement.textContent = defaultErrorText;
       errorElement.style.display = 'block';
@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       errorElement.style.display = 'none';
       input.classList.remove('invalid');
     }
-    
+
     return isValid;
   }
 
@@ -338,12 +338,12 @@ document.addEventListener('DOMContentLoaded', () => {
   formName.addEventListener('input', () => validateField(formName, document.getElementById('error-name'), null, 'Nama wajib diisi.'));
   formSubject.addEventListener('input', () => validateField(formSubject, document.getElementById('error-subject'), null, 'Subjek wajib diisi.'));
   formMessage.addEventListener('input', () => validateField(formMessage, document.getElementById('error-message'), null, 'Pesan tidak boleh kosong.'));
-  
+
   formEmail.addEventListener('input', () => {
     validateField(
-      formEmail, 
-      document.getElementById('error-email'), 
-      isValidEmail, 
+      formEmail,
+      document.getElementById('error-email'),
+      isValidEmail,
       formEmail.value.trim() === '' ? 'Alamat email wajib diisi.' : 'Masukkan email yang valid.'
     );
   });
@@ -354,9 +354,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Perform validation on all fields
     const isNameValid = validateField(formName, document.getElementById('error-name'), null, 'Nama wajib diisi.');
     const isEmailValid = validateField(
-      formEmail, 
-      document.getElementById('error-email'), 
-      isValidEmail, 
+      formEmail,
+      document.getElementById('error-email'),
+      isValidEmail,
       formEmail.value.trim() === '' ? 'Alamat email wajib diisi.' : 'Masukkan email yang valid.'
     );
     const isSubjectValid = validateField(formSubject, document.getElementById('error-subject'), null, 'Subjek wajib diisi.');
@@ -365,11 +365,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // If any field is invalid, cancel submit
     if (!isNameValid || !isEmailValid || !isSubjectValid || !isMessageValid) {
       showToast('Harap perbaiki kesalahan pada formulir.', 'error');
-      
+
       // Focus on first invalid field
       const firstInvalid = contactForm.querySelector('.invalid');
       if (firstInvalid) firstInvalid.focus();
-      
+
       return;
     }
 
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalBtnText = submitBtn.querySelector('span').textContent;
     submitBtn.disabled = true;
     submitBtn.querySelector('span').textContent = 'Mengirim...';
-    
+
     // Add simple rotating spinner
     const originalSvg = submitBtn.querySelector('svg').outerHTML;
     submitBtn.querySelector('svg').outerHTML = `
@@ -393,29 +393,59 @@ document.addEventListener('DOMContentLoaded', () => {
       </svg>
     `;
 
-    // Simulate server delay (1.5 seconds)
-    setTimeout(() => {
-      // Restore button state
-      submitBtn.disabled = false;
-      submitBtn.querySelector('span').textContent = originalBtnText;
-      
-      // We search by class because we replaced the innerHTML
-      const spinnerSvg = submitBtn.querySelector('.spinner');
-      if (spinnerSvg) {
-        spinnerSvg.outerHTML = originalSvg;
-      }
+    // Kirim data ke Formsubmit via AJAX
+    fetch("https://formsubmit.co/ajax/rytkizx@gmail.com", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Nama: formName.value,
+        Email: formEmail.value,
+        Subjek: formSubject.value,
+        Pesan: formMessage.value
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = originalBtnText;
 
-      // Show success toast
-      showToast('Pesan Anda berhasil terkirim! Terima kasih.', 'success');
-      
-      // Reset form fields
-      contactForm.reset();
-      
-      // Clean up any remaining invalid styles
-      const fields = [formName, formEmail, formSubject, formMessage];
-      fields.forEach(field => field.classList.remove('invalid'));
+        // We search by class because we replaced the innerHTML
+        const spinnerSvg = submitBtn.querySelector('.spinner');
+        if (spinnerSvg) {
+          spinnerSvg.outerHTML = originalSvg;
+        }
 
-    }, 1500);
+        if (data.success === "true" || data.success === true) {
+          // Show success toast
+          showToast('Pesan Anda berhasil terkirim! Terima kasih.', 'success');
+
+          // Reset form fields
+          contactForm.reset();
+
+          // Clean up any remaining invalid styles
+          const fields = [formName, formEmail, formSubject, formMessage];
+          fields.forEach(field => field.classList.remove('invalid'));
+        } else {
+          showToast('Terjadi kesalahan dari server. Silakan coba lagi.', 'error');
+        }
+      })
+      .catch(error => {
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = originalBtnText;
+
+        const spinnerSvg = submitBtn.querySelector('.spinner');
+        if (spinnerSvg) {
+          spinnerSvg.outerHTML = originalSvg;
+        }
+
+        showToast('Gagal mengirim pesan. Periksa koneksi internet Anda.', 'error');
+        console.error(error);
+      });
   });
 
 
@@ -424,11 +454,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
   function showToast(message, type = 'success') {
     const toastContainer = document.getElementById('toast-container');
-    
+
     // Create toast element
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
-    
+
     // Icon selection
     let iconSvg = '';
     if (type === 'success') {
@@ -464,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-remove after 4 seconds
     setTimeout(() => {
       toast.classList.remove('show');
-      
+
       // Remove from DOM after transition finishes (400ms transition time)
       setTimeout(() => {
         toast.remove();
