@@ -512,4 +512,111 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(styleSheet);
+
+
+  // ==========================================================================
+  // 10. PROJECTS FILTER & LIGHTBOX GALLERY
+  // ==========================================================================
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  // Project Filtering
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Set active class on buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        if (filterValue === 'all' || card.classList.contains(filterValue)) {
+          card.classList.remove('hide');
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 10);
+        } else {
+          card.classList.add('hide');
+        }
+      });
+    });
+  });
+
+  // Lightbox Gallery
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxCloseBtn = document.getElementById('lightbox-close');
+  const designCards = document.querySelectorAll('.project-card.design');
+
+  function openLightbox(imgSrc, title) {
+    if (!lightboxModal || !lightboxImg || !lightboxCaption) return;
+    
+    lightboxImg.src = imgSrc;
+    lightboxCaption.textContent = title;
+    
+    lightboxModal.classList.add('show');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // Lock background scroll
+  }
+
+  function closeLightbox() {
+    if (!lightboxModal) return;
+    
+    lightboxModal.classList.remove('show');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; // Unlock scroll
+    
+    // Clear src after fade out
+    setTimeout(() => {
+      lightboxImg.src = '';
+      lightboxCaption.textContent = '';
+    }, 300);
+  }
+
+  // Bind click events to design cards
+  designCards.forEach(card => {
+    const overlay = card.querySelector('.project-overlay');
+    const zoomBtn = card.querySelector('.btn-zoom');
+    const imgSrc = card.getAttribute('data-img-src');
+    const title = card.getAttribute('data-title') || '';
+
+    if (overlay) {
+      overlay.addEventListener('click', (e) => {
+        e.preventDefault();
+        openLightbox(imgSrc, title);
+      });
+    }
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openLightbox(imgSrc, title);
+      });
+    }
+  });
+
+  // Close lightbox event listeners
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightboxModal.classList.contains('show')) {
+        closeLightbox();
+      }
+    });
+  }
 });
+
